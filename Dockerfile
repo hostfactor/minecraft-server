@@ -1,10 +1,12 @@
 ARG OPENJDK_TAG=17-alpine
 
-FROM curlimages/curl as builder
+FROM bash as builder
 
 ARG MINECRAFT_JAR_PATH="https://launcher.mojang.com/v1/objects/125e5adf40c659fd3bce3e66e67a16bb49ecc1b9/server.jar"
 
 WORKDIR /app/tmp
+
+RUN apt-get update && apt-get install -y curl
 
 RUN curl ${MINECRAFT_JAR_PATH} -o /app/tmp/server.jar
 
