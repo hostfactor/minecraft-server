@@ -6,7 +6,7 @@ ARG MINECRAFT_JAR_PATH="https://launcher.mojang.com/v1/objects/125e5adf40c659fd3
 
 WORKDIR /app
 
-RUN curl ${MINECRAFT_JAR_PATH} -o server.jar
+RUN curl ${MINECRAFT_JAR_PATH} -o /app/server.jar
 
 FROM openjdk:${OPENJDK_TAG}
 
