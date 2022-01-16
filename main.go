@@ -70,15 +70,16 @@ func main() {
 			return
 		}
 
-		fmt.Println("Pushing", toPush)
-		cmd := exec.Command("docker", append([]string{"push"}, toPush...)...)
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-		err := cmd.Run()
-		if err != nil {
-			fmt.Println("Failed to push", err.Error())
+		for _, v := range toPush {
+			fmt.Println("Pushing", v)
+			cmd := exec.Command("docker", "push", v)
+			cmd.Stdout = os.Stdout
+			cmd.Stderr = os.Stderr
+			err := cmd.Run()
+			if err != nil {
+				fmt.Println("Failed to push", err.Error())
+			}
 		}
-
 	})
 
 	err := c.Visit("https://minecraft.fandom.com/wiki/Java_Edition_version_history")
