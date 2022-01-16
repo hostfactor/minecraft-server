@@ -64,6 +64,12 @@ func main() {
 			}
 			toPush = append(toPush, tag)
 		}
+
+		if len(toPush) == 0 {
+			fmt.Println("Nothing to push. Skipping.")
+			return
+		}
+
 		fmt.Println("Pushing", toPush)
 		cmd := exec.Command("docker", append([]string{"push"}, toPush...)...)
 		cmd.Stdout = os.Stdout
