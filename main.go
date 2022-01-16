@@ -48,6 +48,7 @@ func main() {
 					fmt.Sprintf("%s:%s", os.Getenv("GITHUB_REGISTRY"), version),
 					"--build-arg", fmt.Sprintf("MINECRAFT_JAR_PATH=%s", link),
 					"--build-arg", fmt.Sprintf("OPENJDK_TAG=%s", v),
+					".",
 				)
 				cmd.Stdout = os.Stdout
 				cmd.Stderr = os.Stderr
