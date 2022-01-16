@@ -46,6 +46,7 @@ func main() {
 		for _, v := range OpenJDKTags {
 			if strings.HasPrefix(version, "1.18") && v != "17-alpine" {
 				fmt.Println("Skipping JDK", v, "for version", version, ": Incompatible.")
+				continue
 			}
 			fmt.Println("Building image for version", version, "jar path", link, "jdk tag", v)
 			tag := fmt.Sprintf("%s:%s-%s", os.Getenv("GITHUB_REGISTRY"), version, v)
