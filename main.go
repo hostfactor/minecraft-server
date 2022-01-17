@@ -9,11 +9,29 @@ import (
 	"strings"
 )
 
-var OpenJDKTags = []string{
-	"17-alpine",
-	"15-alpine",
-	"11-jre-slim",
-	"8-jre-slim",
+type JDKTag struct {
+	Tag         string
+	DisplayName string
+	IsDefault   IsDefaultFunc
+	Skip        SkipFunc
+}
+
+type IsDefaultFunc func(version, tag string) bool
+type SkipFunc func(version, tag string) bool
+
+func Skip(version, tag string) bool {
+	return strings.HasPrefix(version, "1.18") && tag != "17-alpine"
+}
+
+func IsDefault(version, tag string) bool {
+	return strings.HasPrefix(version, "1.18") && tag == "17-alpine"
+}
+
+var OpenJDKTags = []JDKTag{
+	{Tag: "17-alpine", DisplayName: "java-17", Skip: Skip, IsDefault: IsDefault},
+	{Tag: "15-alpine", DisplayName: "java-15", Skip: Skip, IsDefault: IsDefault},
+	{Tag: "11-jre-slim", DisplayName: "java-11", Skip: Skip, IsDefault: IsDefault},
+	{Tag: "8-jre-slim", DisplayName: "java-8", Skip: Skip, IsDefault: IsDefault},
 }
 
 func main() {
@@ -44,16 +62,19 @@ func main() {
 
 		toPush := make([]string, 0, len(OpenJDKTags))
 		for _, v := range OpenJDKTags {
-			if strings.HasPrefix(version, "1.18") && v != "17-alpine" {
-				fmt.Println("Skipping JDK", v, "for version", version, ": Incompatible.")
+			if v.Skip(version, v.Tag) {
+				fmt.Println("Skipping JDK", v.Tag, "for version", version, ": Incompatible.")
 				continue
 			}
 			fmt.Println("Building image for version", version, "jar path", link, "jdk tag", v)
-			tag := fmt.Sprintf("%s:%s-%s", os.Getenv("GITHUB_REGISTRY"), version, v)
+			tag := fmt.Sprintf("%s:%s-%s", os.Getenv("GITHUB_REGISTRY"), version, v.DisplayName)
+			if v.IsDefault(version, v.Tag) {
+				tag = fmt.Sprintf("%s:%s", os.Getenv("GITHUB_REGISTRY"), version)
+			}
 			cmd := exec.Command("docker", "build", "-t",
 				tag,
 				"--build-arg", fmt.Sprintf("MINECRAFT_JAR_PATH=%s", link),
-				"--build-arg", fmt.Sprintf("OPENJDK_TAG=%s", v),
+				"--build-arg", fmt.Sprintf("OPENJDK_TAG=%s", v.Tag),
 				".",
 			)
 			cmd.Stdout = os.Stdout
