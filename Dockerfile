@@ -10,6 +10,10 @@ RUN curl ${ARTIFACT_URL} -o /app/tmp/server.jar
 
 FROM openjdk:${TAG}
 
+EXPOSE 25565 25575
+
+STOPSIGNAL SIGTERM
+
 ARG VERSION
 
 ARG VERSION_URL
