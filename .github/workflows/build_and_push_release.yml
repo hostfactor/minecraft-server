@@ -1,6 +1,9 @@
 on:
   workflow_dispatch:
-    inputs: { }
+    inputs:
+      version:
+        description: The version of Minecraft Java Edition to build. E.g. 1.18.1.
+        required: true
   repository_dispatch: { }
 jobs:
   docker:

@@ -9,7 +9,12 @@ import (
 func main() {
 	edBuilder := minecrafter.New([]string{os.Getenv("GITHUB_REGISTRY")})
 
-	err := edBuilder.BuildEdition(new(edition.JavaEdition))
+	var err error
+	if len(os.Args) > 1 {
+		err = edBuilder.BuildRelease(new(edition.JavaEdition), os.Args[1])
+	} else {
+		err = edBuilder.BuildEdition(new(edition.JavaEdition))
+	}
 	if err != nil {
 		panic(err.Error())
 	}

@@ -1,4 +1,4 @@
-ARG TAG=8-jre-slim
+ARG TAG=17-alpine
 
 FROM alpine/curl as builder
 
@@ -29,4 +29,6 @@ LABEL org.opencontainers.image.url='ghcr.io/hostfactor/minecraft-server'
 LABEL org.opencontainers.image.version=${VERSION}
 LABEL org.opencontainers.image.authors='eddie@hostfactor.io'
 
-ENTRYPOINT ["java", "-jar", "server.jar"]
+ENV OPTS="";
+
+CMD java -jar server.jar $OPTS
