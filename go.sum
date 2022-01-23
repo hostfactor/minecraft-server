@@ -47,8 +47,8 @@ github.com/google/go-cmp v0.3.0/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMyw
 github.com/google/go-cmp v0.3.1/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMywk6iLU=
 github.com/google/go-cmp v0.4.0 h1:xsAVV57WRhGj6kEIi8ReJzQlHHqcBYCElAvkovg3B/4=
 github.com/google/go-cmp v0.4.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
-github.com/hostfactor/minecrafter v0.0.0-20220120003843-8e384f9034ce h1:GBlfll5drfW6ObLstp7QtJy8VANQNucf4VuPwmIRPw0=
-github.com/hostfactor/minecrafter v0.0.0-20220120003843-8e384f9034ce/go.mod h1:gUS0XHm9XHARWWp8punStd+VPXfHxnJVr6RhwzSS9SA=
+github.com/hostfactor/minecrafter v0.0.0-20220123193006-5c793c64218d h1:+mrgy6tn1JEeM5t21fdrXoQYM8Q7ni5UU125eJCFAW4=
+github.com/hostfactor/minecrafter v0.0.0-20220123193006-5c793c64218d/go.mod h1:gUS0XHm9XHARWWp8punStd+VPXfHxnJVr6RhwzSS9SA=
 github.com/jawher/mow.cli v1.1.0/go.mod h1:aNaQlc7ozF3vw6IJ2dHjp2ZFiA4ozMIYY6PyuRJwlUg=
 github.com/kennygrant/sanitize v1.2.4 h1:gN25/otpP5vAsO2djbMhF/LQX6R7+O1TB4yv8NzpJ3o=
 github.com/kennygrant/sanitize v1.2.4/go.mod h1:LGsjYYtgxbetdg5owWB2mpgUL6e2nfw2eObZ0u0qvak=

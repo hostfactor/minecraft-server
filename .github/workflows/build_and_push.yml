@@ -1,6 +1,10 @@
 on:
   workflow_dispatch:
-    inputs: { }
+    inputs:
+      build_all:
+        description: Build every single Minecraft version
+        required: false
+        type: boolean
   repository_dispatch: { }
 jobs:
   docker:
@@ -29,4 +33,4 @@ jobs:
         env:
           GITHUB_REGISTRY: ghcr.io/${{ github.repository }}
         run: |
-          ./minecraft-server
+          ./minecraft-server --all=${{github.event.inputs.build_all}}
