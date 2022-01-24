@@ -1,3 +1,4 @@
+name: Build and push
 on:
   schedule:
     - cron: '0 */8 * * *'
