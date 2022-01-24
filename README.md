@@ -1,5 +1,8 @@
 # Minecraft Server Java Edition
 
+![Deploy on Host Factor](https://img.shields.io/badge/Deploy-Host%20Factor-%234f6ac6?labelColor=1b1c1d&style=for-the-badge&link=https://hostfactor.io/games/minecraft)
+![Build latest](https://img.shields.io/github/workflow/status/hostfactor/minecraft-server/build_latest.yml?color=1b1c1d&style=for-the-badge)
+
 A lightweight Docker image tagged for all Minecraft versions containing only the server and minimal dependencies to run
 it.
 
@@ -8,14 +11,24 @@ it.
 All images are tagged and packed with a specific Minecraft version. For example, to run the default Java version
 for `1.18.1`:
 
+### Run the latest
+
 ```
-docker run ghcr.io/hostfactor/minecraft-server:1.18.1
+docker run -p 25565:25565 ghcr.io/hostfactor/minecraft-server
 ```
+
+### Run `1.18.1`
+
+```
+docker run -p 25565:25565 ghcr.io/hostfactor/minecraft-server:1.18.1
+```
+
+### Run with different Java versions
 
 If you want to use a specific Java version e.g. `Java 11` for version `1.12`, you can run
 
 ```
-docker run ghcr.io/hostfactor/minecraft-server:1.12-java-11
+docker run -p 25565:25565 ghcr.io/hostfactor/minecraft-server:1.12-java-11
 ```
 
 ## Java versions
@@ -38,7 +51,7 @@ In order to use an existing world, simply copy the folder containing your Minecr
 folder in the image.
 
 ```
-docker run -v /path/to/world:/server/world ghcr.io/hostfactor/minecraft-server:1.18.1
+docker run -p 25565:25565 -v /path/to/world:/server/world ghcr.io/hostfactor/minecraft-server
 ```
 
 **Note**: Your world folder must contain the `level.dat` file in the root.
@@ -50,7 +63,7 @@ a [server.properties](https://minecraft.fandom.com/wiki/Server.properties#Java_E
 custom options for this file, use the following command.
 
 ```
-docker run -v /path/to/server.properties:/server/server.properties ghcr.io/hostfactor/minecraft-server:1.18.1
+docker run -p 25565:25565 -v /path/to/server.properties:/server/server.properties ghcr.io/hostfactor/minecraft-server
 ```
 
 Where `/path/to/server.properties` is the absolute path to the `server.properties` file on your computer.
@@ -62,7 +75,7 @@ with [args](https://minecraft.fandom.com/wiki/Tutorials/Setting_up_a_server#Mine
 env var e.g.
 
 ```
-$ docker run -e OPTS="--help" ghcr.io/hostfactor/minecraft-server:1.18.1 
+$ docker run -p 25565:25565 -e OPTS="--help" ghcr.io/hostfactor/minecraft-server
 Option                   Description                                         
 ------                   -----------                                         
 --bonusChest                                                                 
@@ -86,7 +99,7 @@ Option                   Description
 You can configure Java options (most importantly JVM heap size) via the `_JAVA_OPTIONS` env var e.g.
 
 ```
-docker run -e _JAVA_OPTIONS="-Xmx4G -Xms4G" ghcr.io/hostfactor/minecraft-server:1.18.1 
+docker run -p 25565:25565 -e _JAVA_OPTIONS="-Xmx4G -Xms4G" ghcr.io/hostfactor/minecraft-server 
 ```
 
 The above will allocate 4GB of memory, no more, no less.
