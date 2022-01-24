@@ -1,7 +1,7 @@
 # Minecraft Server Java Edition
 
 ![Deploy on Host Factor](https://img.shields.io/badge/Deploy-Host%20Factor-%234f6ac6?labelColor=1b1c1d&style=for-the-badge&link=https://hostfactor.io/games/minecraft)
-![Build latest](https://img.shields.io/github/workflow/status/hostfactor/minecraft-server/build_latest.yml?color=1b1c1d&style=for-the-badge)
+![Build latest](https://img.shields.io/github/workflow/status/hostfactor/minecraft-server/Build%20latest?style=for-the-badge&labelColor=1b1c1d)
 
 A lightweight Docker image tagged for all Minecraft versions containing only the server and minimal dependencies to run
 it.
