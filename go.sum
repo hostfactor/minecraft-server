@@ -51,6 +51,8 @@ github.com/hostfactor/minecrafter v0.0.0-20220123193006-5c793c64218d h1:+mrgy6tn
 github.com/hostfactor/minecrafter v0.0.0-20220123193006-5c793c64218d/go.mod h1:gUS0XHm9XHARWWp8punStd+VPXfHxnJVr6RhwzSS9SA=
 github.com/hostfactor/minecrafter v0.0.0-20220124035606-b0957d4a486e h1:m05VCXFt6ABRA/3/miQb3m5F25hMN3WdxHsSa+aQz3Q=
 github.com/hostfactor/minecrafter v0.0.0-20220124035606-b0957d4a486e/go.mod h1:gUS0XHm9XHARWWp8punStd+VPXfHxnJVr6RhwzSS9SA=
+github.com/hostfactor/minecrafter v0.0.0-20220124192257-4bcb0905bfd9 h1:3YjW4PUXEUsJ5DcOlmEmrDbGMBwbaorgrD+l3RdWGZM=
+github.com/hostfactor/minecrafter v0.0.0-20220124192257-4bcb0905bfd9/go.mod h1:gUS0XHm9XHARWWp8punStd+VPXfHxnJVr6RhwzSS9SA=
 github.com/jawher/mow.cli v1.1.0/go.mod h1:aNaQlc7ozF3vw6IJ2dHjp2ZFiA4ozMIYY6PyuRJwlUg=
 github.com/kennygrant/sanitize v1.2.4 h1:gN25/otpP5vAsO2djbMhF/LQX6R7+O1TB4yv8NzpJ3o=
 github.com/kennygrant/sanitize v1.2.4/go.mod h1:LGsjYYtgxbetdg5owWB2mpgUL6e2nfw2eObZ0u0qvak=
