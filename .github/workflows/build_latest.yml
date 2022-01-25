@@ -6,6 +6,7 @@ on:
     inputs:
       build_all:
         description: Build every single Minecraft version
+        default: 'false'
         required: false
         type: boolean
   repository_dispatch: { }
