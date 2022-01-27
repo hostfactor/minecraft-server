@@ -37,4 +37,6 @@ jobs:
         env:
           GITHUB_REGISTRY: ghcr.io/${{ github.repository }}
         run: |
-          ./minecraft-server --all=${{github.event.inputs.build_all}}
+          all-flag-input=${{github.event.inputs.build_all}}
+          all-flag=${all-flag-input:-false}
+          ./minecraft-server --all=$all-flag
