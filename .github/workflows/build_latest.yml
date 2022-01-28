@@ -40,6 +40,11 @@ jobs:
         env:
           GITHUB_REGISTRY: ghcr.io/${{ github.repository }}
         run: |
-          all-flag-input=${{github.event.inputs.build_all}}
-          all-flag=${all-flag-input:-false}
-          ./minecraft-server --all=$all-flag
+          if [ -z ${{github.event.inputs.build_all}}]
+          then
+          export all_flag=false
+          else
+          export all_flag=true
+          fi
+          ./minecraft-server --all=$all_flag
+
